@@ -1,11 +1,16 @@
+import java.util.Map;
+import java.util.HashMap;
 import java.util.Scanner;
 
 public class Login {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+        Map<String, String> users = new HashMap<>();
 
-        String credentialUsername = "diego368";
-        String credentialPassword = "13112002D";
+        users.put("diego368", "13112002");
+        users.put("ivone439", "11102004");
+        users.put("nancy297", "30062008");
+
+        Scanner scanner = new Scanner(System.in);
 
         System.out.print("Enter your username: ");
         String username = scanner.nextLine();
@@ -13,14 +18,8 @@ public class Login {
         System.out.print("Enter your password: ");
         String password = scanner.nextLine();
 
-        boolean isAuthenticated = username.equals(credentialUsername) && password.equals(credentialPassword);
+        boolean isAuthenticated = users.containsKey(username) && users.get(username).equals(password);
 
-        if (!isAuthenticated) {
-            System.out.println("Incorrect credentials");
-
-            return;
-        }
-
-        System.out.println("Welcome " + username + "!");
+        System.out.println(isAuthenticated ? "Welcome " + username + "!" : "Incorrect credentials");
     }
 }
