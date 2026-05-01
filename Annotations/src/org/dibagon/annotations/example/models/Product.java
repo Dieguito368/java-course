@@ -1,17 +1,28 @@
 package org.dibagon.annotations.example.models;
 
+import org.dibagon.annotations.example.Init;
 import org.dibagon.annotations.example.JsonAttribute;
 
 import java.time.LocalDate;
+import java.util.Arrays;
+import java.util.stream.Collectors;
 
 public class Product {
-    @JsonAttribute()
+    @JsonAttribute(capitalize = true)
     private String name;
 
     @JsonAttribute()
     private long price;
 
     private LocalDate date;
+
+    @Init
+    private void init() {
+        this.name = Arrays.stream(name.split(" "))
+                .map(word -> word.substring(0, 1).toUpperCase() + word.substring(1).toLowerCase())
+                .collect(Collectors.joining(" "));
+
+    }
 
     public String getName() {
         return name;
