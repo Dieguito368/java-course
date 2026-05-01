@@ -9,8 +9,8 @@ public class SingletonExample {
             System.out.println(connection);
         }
 
-        DatabaseConnectionSingleton connectio2 =  DatabaseConnectionSingleton.getInstance();
-        DatabaseConnectionSingleton connection3 =  DatabaseConnectionSingleton.getInstance();
+        DatabaseConnectionSingleton connectio2 = DatabaseConnectionSingleton.getInstance();
+        DatabaseConnectionSingleton connection3 = DatabaseConnectionSingleton.getInstance();
 
         System.out.println((connection == connectio2) && (connectio2 == connection3));
     }

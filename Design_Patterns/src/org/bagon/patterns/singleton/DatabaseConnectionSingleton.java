@@ -10,7 +10,7 @@ public class DatabaseConnectionSingleton {
     public static DatabaseConnectionSingleton getInstance() {
         if(connection == null) {
             connection = new DatabaseConnectionSingleton();
-        }
+        }   
 
         return connection;
     }
